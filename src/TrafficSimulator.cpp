@@ -133,7 +133,6 @@ int main()
   });
 
   /* PART 3 : Launch visualization */
-
   //Adds all objects into common vector
   std::vector<std::shared_ptr<TrafficObject>> trafficObjects;
   std::for_each(intersections.begin(), intersections.end(), [&trafficObjects](std::shared_ptr<Intersection> &intersection) {
