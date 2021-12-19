@@ -46,6 +46,7 @@ private:
 public:
   //Constructors & Destructors
   TrafficLight();
+  ~TrafficLight();
 
   //Getters & Setters
   TrafficLightPhase getCurrentPhase();

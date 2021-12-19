@@ -13,8 +13,9 @@ T MessageQueue<T>::receive()
   });
 
   T msg = std::move(_queue.back());
-  _queue.pop_back();
 
+  _queue.clear();
+  _queue.pop_back();
   return msg;
 }
 
@@ -25,7 +26,7 @@ void MessageQueue<T>::send(T &&msg)
   std::lock_guard<std::mutex> gLock(_mtx);
 
   //Adds vector to queue
-  _queue.push_back(std::move(msg));
+  _queue.emplace_back(std::move(msg));
   _condition.notify_one();  //Notifies client after pushing new Vehicle into vector
 }
 
@@ -34,6 +35,8 @@ TrafficLight::TrafficLight()
 {
   _currentPhase = TrafficLightPhase::red;
 }
+
+TrafficLight::~TrafficLight() { }
 
 //Infinite loop to wait for the green light
 void TrafficLight::waitForGreen()

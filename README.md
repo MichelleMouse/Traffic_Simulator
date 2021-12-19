@@ -5,9 +5,9 @@ Welcome to the fourth project of Udacity's C++ Nanodegree!
 
 In this project, I finalised the ongoing lesson project "Traffic Simulator". As the final project, I have implemented a message queue class and traffic lights in each intersection to make the simulator more realistic.
 
-<p align="center"><img src="data/traffic_simulation2.gif" width="400" height="200" alt="Image of the Traffic Simulator"/></p>
+<p align="center"><img src="data/traffic_simulation.gif" width="400" height="200" alt="Image of the Traffic Simulator"/></p>
 
-## EnvironmentÂ
+## Environment
 👉 macOS 12.1 Monterey with Intel Core i7 chip  
 👉 Homebrew 3.3.5  
 👉 cMake 3.21.3  
