@@ -43,7 +43,7 @@ void TrafficLight::waitForGreen()
   {
     if(_messages.receive() == TrafficLightPhase::green) { return; }
 
-    // std::this_thread::sleep_for(std::chrono::milliseconds(1));  //Reduces the load in the procesor
+    std::this_thread::sleep_for(std::chrono::milliseconds(1));  //Reduces the load in the procesor
   }
 }
 

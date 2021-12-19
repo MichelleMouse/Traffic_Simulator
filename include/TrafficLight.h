@@ -17,11 +17,7 @@ enum TrafficLightPhase
   green,
 };
 
-// FP.3 Define a class „MessageQueue“ which has the public methods send and receive.
-// Send should take an rvalue reference of type TrafficLightPhase whereas receive should return this type.
-// Also, the class should define an std::dequeue called _queue, which stores objects of type TrafficLightPhase.
-// Also, there should be an std::condition_variable as well as an std::mutex as private members.
-
+//MessageQueue class
 template <class T>
 class MessageQueue
 {
@@ -38,16 +34,14 @@ private:
 class TrafficLight : public TrafficObject
 {
 private:
-  // FP.4b : create a private member of type MessageQueue for messages of type TrafficLightPhase
-    // and use it within the infinite loop to push each new TrafficLightPhase into it by calling
-    // send in conjunction with move semantics.
+  //Typical behaviour methods
+  void cycleThroughPhases();
 
+  //Private memebers
   std::condition_variable _condition;
   std::mutex _mtx;
   TrafficLightPhase _currentPhase;
   MessageQueue<TrafficLightPhase> _messages;
-
-  void cycleThroughPhases();
 
 public:
   //Constructors & Destructors

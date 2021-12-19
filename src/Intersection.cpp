@@ -77,8 +77,9 @@ void Intersection::addVehicleToQueue(std::shared_ptr<Vehicle> vehicle)
   lck.lock();
   std::cout << "Intersection #" << _id << ": Vehicle #" << vehicle->getID() << " is granted entry" << std::endl;
 
-  // FP.6b : use the methods TrafficLight::getCurrentPhase and TrafficLight::waitForGreen to block the execution until the traffic light turns green.
   lck.unlock();
+
+  //BLock the exeuction until the traffic light turn green
   if(_trafficLight.getCurrentPhase() == TrafficLightPhase::red)
   {
     lck.lock();
@@ -107,7 +108,6 @@ void Intersection::setIsBlocked(bool isBlocked)
 //Virtual function which is executed in thread
 void Intersection::simulate()
 {
-  // FP.6a : In Intersection.h, add a private member _trafficLight of type TrafficLight. At this position, start the simulation of _trafficLight.
   //Starts the traffic light simulation
   _trafficLight.simulate();
 
@@ -137,6 +137,4 @@ void Intersection::processVehicleQueue()
 bool Intersection::trafficLightIsGreen()
 {
   return _trafficLight.getCurrentPhase() == TrafficLightPhase::green;
-
-  // return true; // makes traffic light permanently green
 }
