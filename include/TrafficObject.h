@@ -1,6 +1,7 @@
 #ifndef TRAFFICOBJECT_H
 #define TRAFFICOBJECT_H
 
+#include <algorithm>
 #include <mutex>
 #include <vector>
 #include <thread>
